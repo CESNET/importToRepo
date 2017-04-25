@@ -1,0 +1,11 @@
+.idea
+__pycache__/
+*pyc
+*~
+*orig
+*bak
+*.pyd
+.idea/
+db.sqlite3
+debug.log
+importToRepo/__pycache__/
