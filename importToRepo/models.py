@@ -60,56 +60,6 @@ class AcceptedOrder(models.Model):
         db_table = 'accepted_order'
 
 
-class AnalyticalData(models.Model):
-    nr_in_reaction = models.IntegerField(blank=True, null=True)
-    project_id = models.IntegerField(blank=True, null=True)
-    molecule_id = models.IntegerField(blank=True, null=True)
-    chemical_storage_id = models.IntegerField(blank=True, null=True)
-    reaction_id = models.IntegerField(blank=True, null=True)
-    reaction_chemical = models.ForeignKey(ReactionChemical, blank=True, null=True)
-    fraction_no = models.TextField(blank=True, null=True)
-    analytical_data_identifier = models.TextField(blank=True, null=True)
-    analytical_data_raw_blob = models.TextField(blank=True, null=True)
-    analytical_data_blob = models.TextField(blank=True, null=True)
-    measured_by = models.TextField(blank=True, null=True)
-    solvent = models.IntegerField(blank=True, null=True)
-    analytical_data_interpretation = models.TextField(blank=True, null=True)
-    analytical_data_comment = models.TextField(blank=True, null=True)
-    analytical_data_properties_blob = models.TextField(blank=True, null=True)
-    analytical_data_graphics_blob = models.TextField(blank=True, null=True)
-    analytical_data_svg_blob = models.TextField(blank=True, null=True)
-    analytical_data_csv = models.TextField(blank=True, null=True)
-    analytical_data_graphics_type = models.TextField(blank=True, null=True)
-    analytical_data_link_url = models.TextField(blank=True, null=True)
-    analytical_data_display_settings = models.IntegerField(blank=True, null=True)
-    analytics_method_id = models.IntegerField(blank=True, null=True)
-    analytics_method_name = models.TextField(blank=True, null=True)
-    analytics_method_text = models.TextField(blank=True, null=True)
-    analytics_type_id = models.IntegerField(blank=True, null=True)
-    analytics_type_name = models.TextField(blank=True, null=True)
-    analytics_type_code = models.TextField(blank=True, null=True)
-    analytics_type_text = models.TextField(blank=True, null=True)
-    analytics_device_id = models.IntegerField(blank=True, null=True)
-    analytics_device_name = models.TextField(blank=True, null=True)
-    analytics_device_driver = models.TextField(blank=True, null=True)
-    analytical_data_uid = models.CharField(max_length=128, blank=True, null=True)
-    analytical_data_ext_archive_id = models.TextField(blank=True, null=True)
-    analytical_data_id = models.AutoField(primary_key=True)
-    analytical_data_shared = models.IntegerField(blank=True, null=True)
-    analytical_data_created_by = models.TextField(blank=True, null=True)
-    analytical_data_created_when = models.DateTimeField(blank=True, null=True)
-    analytical_data_created_hashver = models.IntegerField(blank=True, null=True)
-    analytical_data_created_md5 = models.CharField(max_length=128, blank=True, null=True)
-    analytical_data_changed_by = models.TextField(blank=True, null=True)
-    analytical_data_changed_when = models.DateTimeField(blank=True, null=True)
-    analytical_data_changed_hashver = models.IntegerField(blank=True, null=True)
-    analytical_data_changed_md5 = models.CharField(max_length=128, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'analytical_data'
-
-
 class AnalyticalDataArchive(models.Model):
     nr_in_reaction = models.IntegerField(blank=True, null=True)
     project_id = models.IntegerField(blank=True, null=True)
@@ -1480,6 +1430,56 @@ class ReactionChemical(models.Model):
     class Meta:
         managed = False
         db_table = 'reaction_chemical'
+
+
+class AnalyticalData(models.Model):
+    nr_in_reaction = models.IntegerField(blank=True, null=True)
+    project_id = models.IntegerField(blank=True, null=True)
+    molecule_id = models.IntegerField(blank=True, null=True)
+    chemical_storage_id = models.IntegerField(blank=True, null=True)
+    reaction_id = models.IntegerField(blank=True, null=True)
+    reaction_chemical = models.ForeignKey(ReactionChemical, blank=True, null=True)
+    fraction_no = models.TextField(blank=True, null=True)
+    analytical_data_identifier = models.TextField(blank=True, null=True)
+    analytical_data_raw_blob = models.TextField(blank=True, null=True)
+    analytical_data_blob = models.TextField(blank=True, null=True)
+    measured_by = models.TextField(blank=True, null=True)
+    solvent = models.IntegerField(blank=True, null=True)
+    analytical_data_interpretation = models.TextField(blank=True, null=True)
+    analytical_data_comment = models.TextField(blank=True, null=True)
+    analytical_data_properties_blob = models.TextField(blank=True, null=True)
+    analytical_data_graphics_blob = models.TextField(blank=True, null=True)
+    analytical_data_svg_blob = models.TextField(blank=True, null=True)
+    analytical_data_csv = models.TextField(blank=True, null=True)
+    analytical_data_graphics_type = models.TextField(blank=True, null=True)
+    analytical_data_link_url = models.TextField(blank=True, null=True)
+    analytical_data_display_settings = models.IntegerField(blank=True, null=True)
+    analytics_method_id = models.IntegerField(blank=True, null=True)
+    analytics_method_name = models.TextField(blank=True, null=True)
+    analytics_method_text = models.TextField(blank=True, null=True)
+    analytics_type_id = models.IntegerField(blank=True, null=True)
+    analytics_type_name = models.TextField(blank=True, null=True)
+    analytics_type_code = models.TextField(blank=True, null=True)
+    analytics_type_text = models.TextField(blank=True, null=True)
+    analytics_device_id = models.IntegerField(blank=True, null=True)
+    analytics_device_name = models.TextField(blank=True, null=True)
+    analytics_device_driver = models.TextField(blank=True, null=True)
+    analytical_data_uid = models.CharField(max_length=128, blank=True, null=True)
+    analytical_data_ext_archive_id = models.TextField(blank=True, null=True)
+    analytical_data_id = models.AutoField(primary_key=True)
+    analytical_data_shared = models.IntegerField(blank=True, null=True)
+    analytical_data_created_by = models.TextField(blank=True, null=True)
+    analytical_data_created_when = models.DateTimeField(blank=True, null=True)
+    analytical_data_created_hashver = models.IntegerField(blank=True, null=True)
+    analytical_data_created_md5 = models.CharField(max_length=128, blank=True, null=True)
+    analytical_data_changed_by = models.TextField(blank=True, null=True)
+    analytical_data_changed_when = models.DateTimeField(blank=True, null=True)
+    analytical_data_changed_hashver = models.IntegerField(blank=True, null=True)
+    analytical_data_changed_md5 = models.CharField(max_length=128, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'analytical_data'
 
 
 class ReactionChemicalArchive(models.Model):
