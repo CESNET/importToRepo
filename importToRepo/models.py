@@ -703,6 +703,9 @@ class Person(models.Model):
     person_changed_md5 = models.CharField(max_length=128, blank=True, null=True)
     person_barcode = models.CharField(max_length=20, blank=True, null=True)
 
+    def get_fullname(self):
+        return self.first_name+" "+self.last_name
+
     class Meta:
         managed = False
         db_table = 'person'
@@ -1253,8 +1256,8 @@ class ProjectLiterature(models.Model):
 
 
 class ProjectPerson(models.Model):
-    project_id = models.IntegerField(blank=True, null=True)
-    person_id = models.IntegerField(blank=True, null=True)
+    project = models.ForeignKey(Project, blank=True, null=True)
+    person = models.ForeignKey(Person, blank=True, null=True)
     project_person_id = models.AutoField(primary_key=True)
 
     class Meta:
